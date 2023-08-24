@@ -1,28 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ShoppingBagIcon,
   MoonIcon,
   SunIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 function Navbar() {
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    document.getElementsByTagName("html")[0].setAttribute("data-theme", theme);
+  }, [theme]);
+
+  function toggleTheme() {
+    setTheme(theme === "dark" ? "light" : "dark");
+  }
+
   return (
-    <header className="p-5  flex justify-between">
-      <div className="navbar bg-base-100">
+    <header className="flex justify-between">
+      <div className="navbar bg-base-100 p-5 border-b border-gray-200">
         <div className="flex-1">
-          <a href="#" className="navbar-start font-bold text-3xl">
+          <Link to="/" className="navbar-start font-bold text-3xl">
             Shop
-          </a>
+          </Link>
         </div>
 
         <div className="flex justify-center items-center gap-8">
           <label htmlFor="themeToggle" className="swap swap-rotate">
-            <input type="checkbox" id="themeToggle" />
-            <MoonIcon className="swap-off w-9 text-black" />
-            <SunIcon className="swap-on w-9 text-black" />
+            <input type="checkbox" id="themeToggle" onClick={toggleTheme} />
+            <MoonIcon className="swap-off w-9" />
+            <SunIcon className="swap-on w-9" />
           </label>
 
-          <ShoppingBagIcon className="w-9 pb-1" />
+          <Link to="/cart">
+            <ShoppingBagIcon className="w-9 pb-1" />
+          </Link>
         </div>
       </div>
     </header>
