@@ -6,6 +6,12 @@ export default {
   },
   theme: {
     extend: {},
+    screens: {
+      xs: "320px",
+      sm: "375px",
+      md: "768px",
+      lg: "1024px",
+    },
   },
   plugins: [require("daisyui")],
 };
