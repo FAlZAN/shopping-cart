@@ -50,7 +50,7 @@ function Cart() {
     <div className="max-w-7xl m-auto p-3 sm:p-5  md:flex md:gap-5">
       {content}
 
-      <div className="w-full md:max-w-sm h-36 mt-5 md:mt-0  flex flex-col justify-between">
+      <div className="w-full h-fit md:max-w-sm mt-5 md:mt-0  flex flex-col justify-between">
         <div>
           <h2 className="text-xl font-bold self-start">TOTAL</h2>
 
@@ -68,7 +68,9 @@ function Cart() {
           </ul>
         </div>
 
-        <button type="button" className="btn w-full">
+        <span className="divider"></span>
+
+        <button type="button" className="btn btn-success w-full">
           CHECKOUT
         </button>
       </div>
