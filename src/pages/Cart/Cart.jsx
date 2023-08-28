@@ -8,7 +8,7 @@ import CartProduct from "../../components/cart-product/CartProduct";
 function Cart() {
   const cart = useSelector((state) => state.cart.items);
   const totalItemsInCart = totalItems(cart);
-  const totalPriceOfCart = Math.ceil(totalCartPrice(cart));
+  const totalPriceOfCart = totalCartPrice(cart).toFixed(2);
   console.log(cart);
 
   function totalItems(array) {
