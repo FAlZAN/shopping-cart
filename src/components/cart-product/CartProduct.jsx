@@ -29,7 +29,7 @@ function CartProduct({ item }) {
   }
 
   return (
-    <div className="card card-bordered card-side w-full max-w-lg h-36">
+    <div className="card card-bordered card-side w-full h-36">
       <figure className="w-28 p-3 mx-3 sm:p-5  flex justify-center items-center">
         <img src={item.image} alt={item.title} />
       </figure>
