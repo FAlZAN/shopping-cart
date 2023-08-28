@@ -4,12 +4,8 @@ import { useGetProductsQuery } from "../../services/products";
 // component
 import Product from "../../components/product/Product";
 
-import { useSelector } from "react-redux";
-
 function Home() {
   const { data: products, error, isLoading } = useGetProductsQuery("limit=10");
-  const cart = useSelector((state) => state.cart.items);
-  console.log(cart);
 
   let content;
 
