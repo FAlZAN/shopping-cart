@@ -10,6 +10,7 @@ function Product({ product }) {
     console.log(item);
     dispatch(addToCart({ ...item, quantityInCart: 1 }));
   }
+
   return (
     <div className="card card-bordered p-3 lg:p-5 flex flex-col justify-between items-center gap-3 lg:gap-5">
       <figure className="w-full h-full bg-white  flex justify-center items-center">
