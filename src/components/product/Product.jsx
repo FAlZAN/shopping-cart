@@ -11,7 +11,7 @@ function Product({ product }) {
     dispatch(addToCart({ ...item, quantityInCart: 1 }));
   }
   return (
-    <div className="p-3 lg:p-5 border border-black/50  flex flex-col justify-between items-center gap-5">
+    <div className="card card-bordered p-3 lg:p-5 flex flex-col justify-between items-center gap-3 lg:gap-5">
       <figure className="w-full h-full bg-white  flex justify-center items-center">
         <img className="w-28" src={product.image} alt={product.title} />
       </figure>
@@ -20,10 +20,8 @@ function Product({ product }) {
         <p className="line-clamp-1 sm:line-clamp-2">{product.title}</p>
         <p className="">$ {product.price}</p>
       </div>
-      <button
-        className="btn w-full rounded-none"
-        onClick={() => handleAddToCart(product)}
-      >
+
+      <button className="btn w-full" onClick={() => handleAddToCart(product)}>
         Add to cart
       </button>
     </div>
