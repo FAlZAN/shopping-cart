@@ -2,22 +2,15 @@ import React from "react";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 
 import { useSelector } from "react-redux";
+import getTotalItemsInCart from "../../util/getTotalItemsInCart";
 
 import CartProduct from "../../components/cart-product/CartProduct";
 
 function Cart() {
   const cart = useSelector((state) => state.cart.items);
-  const totalItemsInCart = totalItems(cart);
+  const totalItemsInCart = getTotalItemsInCart(cart);
   const totalPriceOfCart = totalCartPrice(cart).toFixed(2);
   console.log(cart);
-
-  function totalItems(array) {
-    let totalItems = 0;
-    array.forEach((element) => {
-      totalItems += element.quantityInCart;
-    });
-    return totalItems;
-  }
 
   function totalCartPrice(array) {
     let subTotal = 0;
