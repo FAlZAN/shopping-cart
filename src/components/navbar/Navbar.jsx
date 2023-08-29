@@ -10,8 +10,8 @@ function Navbar() {
   const totalItemsInCart = getTotalItemsInCart(cart);
 
   return (
-    <header className="flex justify-between">
-      <div className="navbar bg-base-100 p-5 border-b border-gray-200">
+    <header className="flex">
+      <div className="navbar bg-base-100 p-5 border-b-2 border-gray-200qq">
         <div className="flex-1">
           <Link to="/" className="navbar-start font-bold text-3xl">
             StopNShop
