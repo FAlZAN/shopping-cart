@@ -12,6 +12,7 @@ import Order from "./pages/Order/Order";
 
 import { useDispatch } from "react-redux";
 import { setInitialState } from "./features/cart/cart";
+import { setInitialOrderDetails } from "./features/order-details/orderDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,9 +22,14 @@ function App() {
 
   useEffect(() => {
     const localCart = localStorage.getItem("cart");
+    const localOrderDetails = localStorage.getItem("orderDetails");
 
     if (localCart !== null) {
       dispatch(setInitialState(JSON.parse(localCart)));
+    }
+
+    if (localOrderDetails !== null) {
+      dispatch(setInitialOrderDetails(JSON.parse(localOrderDetails)));
     }
   }, []);
 
