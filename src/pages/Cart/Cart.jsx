@@ -10,17 +10,6 @@ import ItemsAndPriceTotal from "../../components/items-and-price-total/ItemsAndP
 
 function Cart() {
   const cart = useSelector((state) => state.cart.items);
-  // const totalItemsInCart = getTotalItemsInCart(cart);
-  // const totalPriceOfCart = totalCartPrice(cart).toFixed(2);
-  // console.log(cart);
-
-  // function totalCartPrice(array) {
-  //   let subTotal = 0;
-  //   array.forEach((element) => {
-  //     subTotal += element.quantityInCart * element.price;
-  //   });
-  //   return subTotal;
-  // }
 
   let content;
   if (cart.length === 0) {
@@ -46,7 +35,7 @@ function Cart() {
       {content}
 
       <div className="w-full h-fit md:max-w-sm mt-5 md:mt-0">
-        <h2 className="text-xl font-bold self-start">Total</h2>
+        <h2 className="text-xl font-bold leading-none">Total</h2>
 
         <ItemsAndPriceTotal />
 
