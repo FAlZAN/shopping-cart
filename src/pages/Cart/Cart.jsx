@@ -1,24 +1,26 @@
 import React from "react";
-import { ShoppingBagIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
-import getTotalItemsInCart from "../../util/getTotalItemsInCart";
+
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 
 import CartProduct from "../../components/cart-product/CartProduct";
+import ItemsAndPriceTotal from "../../components/items-and-price-total/ItemsAndPriceTotal";
 
 function Cart() {
   const cart = useSelector((state) => state.cart.items);
-  const totalItemsInCart = getTotalItemsInCart(cart);
-  const totalPriceOfCart = totalCartPrice(cart).toFixed(2);
-  console.log(cart);
+  // const totalItemsInCart = getTotalItemsInCart(cart);
+  // const totalPriceOfCart = totalCartPrice(cart).toFixed(2);
+  // console.log(cart);
 
-  function totalCartPrice(array) {
-    let subTotal = 0;
-    array.forEach((element) => {
-      subTotal += element.quantityInCart * element.price;
-    });
-    return subTotal;
-  }
+  // function totalCartPrice(array) {
+  //   let subTotal = 0;
+  //   array.forEach((element) => {
+  //     subTotal += element.quantityInCart * element.price;
+  //   });
+  //   return subTotal;
+  // }
 
   let content;
   if (cart.length === 0) {
@@ -31,7 +33,7 @@ function Cart() {
   } else {
     content = (
       <div className="w-full  flex flex-col items-center gap-5">
-        <h2 className="text-xl font-bold  self-start">MY BAG</h2>
+        <h2 className="text-xl font-bold  self-start">My Bag</h2>
         {cart?.map((item) => (
           <CartProduct key={item.id} item={item} />
         ))}
@@ -43,29 +45,16 @@ function Cart() {
     <div className="max-w-7xl m-auto p-3 sm:p-5  md:flex md:gap-5">
       {content}
 
-      <div className="w-full h-fit md:max-w-sm mt-5 md:mt-0  flex flex-col justify-between">
-        <div>
-          <h2 className="text-xl font-bold self-start">TOTAL</h2>
+      <div className="w-full h-fit md:max-w-sm mt-5 md:mt-0">
+        <h2 className="text-xl font-bold self-start">Total</h2>
 
-          <span className="divider -my-[1px]"></span>
+        <ItemsAndPriceTotal />
 
-          <ul className="py-3 mb-[1px]">
-            <li className="flex justify-between">
-              <p className="font-bold">Item's</p>
-              <p>( {totalItemsInCart} )</p>
-            </li>
-            <li className="flex justify-between">
-              <p className="font-bold">Subtotal</p>
-              <p>$ {totalPriceOfCart}</p>
-            </li>
-          </ul>
-        </div>
-
-        <span className="divider"></span>
-
-        <button type="button" className="btn btn-success w-full">
-          CHECKOUT
-        </button>
+        <Link to="/order/address">
+          <button type="button" className="btn btn-success w-full">
+            CHECKOUT
+          </button>
+        </Link>
       </div>
     </div>
   );
