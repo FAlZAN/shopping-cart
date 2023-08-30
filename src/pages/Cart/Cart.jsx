@@ -1,15 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addCartItemsAndPrice } from "../../features/order-details/orderDetails";
 
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 
 import CartProduct from "../../components/cart-product/CartProduct";
 import ItemsAndPriceTotal from "../../components/items-and-price-total/ItemsAndPriceTotal";
 
+import getTotalItemsInCart from "../../util/getTotalItemsInCart";
+import getTotalCartPrice from "../../util/getTotalCartPrice";
+
 function Cart() {
   const cart = useSelector((state) => state.cart.items);
+  const totalItems = getTotalItemsInCart(cart);
+  const totalPrice = getTotalCartPrice(cart);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   let content;
   if (cart.length === 0) {
@@ -30,6 +38,13 @@ function Cart() {
     );
   }
 
+  function handleCheckoutClick() {
+    dispatch(
+      addCartItemsAndPrice({ items: [...cart], totalItems, totalPrice })
+    );
+    navigate("/order/address");
+  }
+
   return (
     <div className="max-w-7xl m-auto p-3 sm:p-5  md:flex md:gap-5">
       {content}
@@ -39,11 +54,15 @@ function Cart() {
 
         <ItemsAndPriceTotal />
 
-        <Link to="/order/address">
-          <button type="button" className="btn btn-success w-full">
-            CHECKOUT
-          </button>
-        </Link>
+        {/* <Link to="/order/address"> */}
+        <button
+          type="button"
+          className="btn btn-success w-full"
+          onClick={handleCheckoutClick}
+        >
+          CHECKOUT
+        </button>
+        {/* </Link> */}
       </div>
     </div>
   );
