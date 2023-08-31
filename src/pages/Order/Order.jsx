@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 import ItemsAndPriceTotal from "../../components/items-and-price-total/ItemsAndPriceTotal";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setInitialState } from "../../features/cart/cart";
 
 function Order() {
   const orderDetails = useSelector((state) => state.orderDetails.orderDetails);
   const { fullname, buildingName, area, landmark, state, townCity, pincode } =
     orderDetails.address;
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   function handlePayAndPlaceOrderClick() {
@@ -23,6 +25,7 @@ function Order() {
       })
     );
 
+    dispatch(setInitialState([]));
     localStorage.setItem("cart", JSON.stringify([]));
 
     navigate("/order/confirm-order");
