@@ -46,25 +46,23 @@ function Cart() {
   }
 
   return (
-    <div className="max-w-7xl m-auto p-3 sm:p-5  md:flex md:gap-5">
+    <section className="max-w-7xl m-auto p-3 sm:p-5  md:flex md:gap-5">
       {content}
 
       <div className="w-full h-fit md:max-w-sm mt-5 md:mt-0">
-        <h2 className="text-xl font-bold leading-none">Total</h2>
+        <h2 className="mb-5 text-xl font-bold leading-none">Total</h2>
 
         <ItemsAndPriceTotal />
 
-        {/* <Link to="/order/address"> */}
         <button
           type="button"
-          className="btn btn-success w-full"
+          className="btn btn-success w-full mt-5"
           onClick={handleCheckoutClick}
         >
           CHECKOUT
         </button>
-        {/* </Link> */}
       </div>
-    </div>
+    </section>
   );
 }
 

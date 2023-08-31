@@ -25,7 +25,7 @@ function Home() {
     );
   }
 
-  return <div>{content}</div>;
+  return <section>{content}</section>;
 }
 
 export default Home;
