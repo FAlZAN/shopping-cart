@@ -9,6 +9,7 @@ import Cart from "./pages/Cart/Cart";
 import OrderAddress from "./pages/OrderAddress/OrderAddress";
 import OrderPayment from "./pages/OrderPayment/OrderPayment";
 import Order from "./pages/Order/Order";
+import OrderConfirm from "./pages/OrderConfirm/OrderConfirm";
 
 import { useDispatch } from "react-redux";
 import { setInitialState } from "./features/cart/cart";
@@ -49,6 +50,7 @@ function App() {
           <Route path="/order/address" element={<OrderAddress />} />
           <Route path="/order/payment" element={<OrderPayment />} />
           <Route path="/order/place-order" element={<Order />} />
+          <Route path="/order/confirm-order" element={<OrderConfirm />} />
         </Routes>
       </main>
     </div>
