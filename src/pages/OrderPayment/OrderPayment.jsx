@@ -81,11 +81,9 @@ function OrderPayment() {
             <span className="label-text ml-5">Cash on Delivery</span>
           </label>
 
-          {/* <Link to="/order/place-order"> */}
           <button form="payment-form" className="btn w-full mt-5">
             Proceed
           </button>
-          {/* </Link> */}
         </form>
       </div>
     </section>

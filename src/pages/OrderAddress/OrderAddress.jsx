@@ -122,9 +122,7 @@ function OrderAddress() {
             onChange={handleChange}
           />
 
-          {/* <Link to="/order/payment"> */}
           <button className="btn w-full mt-3">Use this address</button>
-          {/* </Link> */}
         </form>
       </div>
     </section>
